@@ -6,8 +6,8 @@ credentials.json
 
 # Terraform
 .terraform/
-*.tfstate
-*.tfstate.*
+terraform.tfstate
+terraform.tfstate.*
 .terraform.lock.hcl
 
 # Environment variables
