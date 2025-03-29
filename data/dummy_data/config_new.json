@@ -1,0 +1,80 @@
+{
+  "scenarios": [
+    {
+      "name": "existing_dataset_new_table",
+      "dataset_id": "deanlytic_vta_abt",
+      "location": "us-central1",
+      "tables": [
+        {
+          "name": "ventas",
+          "operation": "import",
+          "schema": {
+            "fields": [
+              {"name": "id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "fecha", "type": "DATE", "mode": "REQUIRED"},
+              {"name": "monto", "type": "FLOAT", "mode": "REQUIRED"}
+            ]
+          }
+        },
+        {
+          "name": "nueva_tabla_ventas_diarias",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "fecha", "type": "DATE", "mode": "REQUIRED"},
+              {"name": "total_ventas", "type": "FLOAT", "mode": "REQUIRED"},
+              {"name": "cantidad_transacciones", "type": "INTEGER", "mode": "REQUIRED"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "new_dataset_and_tables",
+      "dataset_id": "deanlytic_vta_abt_new",
+      "location": "us-central1",
+      "tables": [
+        {
+          "name": "ventas_detalle",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "id_venta", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "fecha", "type": "DATE", "mode": "REQUIRED"},
+              {"name": "producto_id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "cantidad", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "precio_unitario", "type": "FLOAT", "mode": "REQUIRED"},
+              {"name": "subtotal", "type": "FLOAT", "mode": "REQUIRED"}
+            ]
+          }
+        },
+        {
+          "name": "productos",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "producto_id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "nombre", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "categoria", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "precio", "type": "FLOAT", "mode": "REQUIRED"},
+              {"name": "stock", "type": "INTEGER", "mode": "REQUIRED"}
+            ]
+          }
+        },
+        {
+          "name": "clientes",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "cliente_id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "nombre", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "email", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "telefono", "type": "STRING", "mode": "NULLABLE"},
+              {"name": "direccion", "type": "STRING", "mode": "NULLABLE"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+} 

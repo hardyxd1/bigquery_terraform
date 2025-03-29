@@ -1,0 +1,72 @@
+{
+  "scenarios": [
+    {
+      "name": "new_dataset_and_tables",
+      "dataset_id": "ecommerce_data_new",
+      "location": "us-central1",
+      "tables": [
+        {
+          "name": "users",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "username", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "email", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "first_name", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "last_name", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+              {"name": "is_active", "type": "BOOLEAN", "mode": "REQUIRED"},
+              {"name": "role", "type": "STRING", "mode": "REQUIRED"}
+            ]
+          }
+        },
+        {
+          "name": "products",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "name", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "description", "type": "STRING", "mode": "NULLABLE"},
+              {"name": "price", "type": "FLOAT", "mode": "REQUIRED"},
+              {"name": "category", "type": "STRING", "mode": "REQUIRED"},
+              {"name": "stock", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+              {"name": "is_available", "type": "BOOLEAN", "mode": "REQUIRED"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "existing_dataset_new_table",
+      "dataset_id": "deanlytic_vta_abt",
+      "location": "us-central1",
+      "tables": [
+        {
+          "name": "ventas",
+          "operation": "import",
+          "schema": {
+            "fields": [
+              {"name": "id", "type": "INTEGER", "mode": "REQUIRED"},
+              {"name": "fecha", "type": "DATE", "mode": "REQUIRED"},
+              {"name": "monto", "type": "FLOAT", "mode": "REQUIRED"}
+            ]
+          }
+        },
+        {
+          "name": "nueva_tabla_ventas_diarias",
+          "operation": "create",
+          "schema": {
+            "fields": [
+              {"name": "fecha", "type": "DATE", "mode": "REQUIRED"},
+              {"name": "total_ventas", "type": "FLOAT", "mode": "REQUIRED"},
+              {"name": "cantidad_transacciones", "type": "INTEGER", "mode": "REQUIRED"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+} 
